@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  business-scraper:
+    build: .
+    container_name: business_scraper
+    volumes:
+      - ./output:/app/output
+    environment:
+      - DISPLAY=:99
+    networks:
+      - scraper-network
+    restart: "no"
+
+networks:
+  scraper-network:
+    driver: bridge
